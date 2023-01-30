@@ -1,2 +1,3 @@
 import { greet } from "./returnFunc.mjs";
-console.log(greet('Itachi'))
+const log = console.log;
+log(greet('Itachi'))
