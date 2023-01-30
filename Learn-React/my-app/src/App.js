@@ -15,7 +15,6 @@ function App() {
   let elem = <div>Hello world</div>
   return (
     <>
-
       <div>
         <Navbar />
         Hello, My name is <span className='red'>  {name} </span>
