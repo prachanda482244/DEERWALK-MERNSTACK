@@ -1,19 +1,18 @@
 import './App.css';
+import Map from './Components/Map';
 import Navbar from './Components/Navbar'
-import Product from './Components/Product';
 
 function App() {
-  let products = {
-    name: 'Dell E5300 laptop',
-    price: 80000,
-    quantity: 5
-  }
-  let { name, price, quantity } = products
+
   return (
-    <>
+    <div style={{ backgroundColor: '#eeeeee', height: '100%' }}>
+
       <Navbar />
-      <Product productName={name} productPrice={price} productQuantity={quantity} />
-    </>
+      <p style={{ textAlign: 'center', fontSize: '25px' }}>
+        Q37 make a component that use map methode inside jsx
+      </p>
+      <Map />
+    </div>
   );
 }
 

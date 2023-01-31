@@ -49,7 +49,6 @@ function App() {
       {/* Lecture 02 */}
       <StoreElem />
 
-
     </div>
   );
 }
