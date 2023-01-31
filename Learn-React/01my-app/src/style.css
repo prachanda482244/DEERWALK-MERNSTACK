@@ -1,0 +1,29 @@
+.container {
+  background-color: #f0f4fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 0 auto;
+  height: 60vh;
+}
+.box {
+  background-color: #ffffff;
+  height: 40vh;
+  width: 40vw;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: #6e6f73;
+}
+.black {
+  color: black;
+}
+.line {
+  border: 2px solid skyblue;
+}
+.details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
