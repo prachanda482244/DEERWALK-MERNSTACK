@@ -5,14 +5,14 @@ const LearnUseState = ({ title }) => {
 
     let [count, setCount] = useState(0);
     let [name, setName] = useState('nitan')
-    let css = {
-        padding: '1rem',
-        margin: '20px',
-        borderRadius: '10px',
-        border: 'none',
-        outline: '2px solid black',
-        width: '50vw'
-    }
+    // let css = {
+    //     padding: '1rem',
+    //     margin: '20px',
+    //     borderRadius: '10px',
+    //     border: 'none',
+    //     outline: '2px solid black',
+    //     width: '50vw'
+    // }
     let handleClick = () => {
         setCount(++count)
     }
