@@ -1,11 +1,17 @@
 import './App.css';
-import StoreElem from './Components/StoreElem';
+// import LearnUseState from './Hooks/LearnUseState';
 
 // LECTURE 01
 // import MyCom from './Components/MyCom';
 // import Info from './Components/Info';
 // import Navbar from './Components/Navbar';
 // import Describe from './Components/Describe';
+
+// Lecture 02
+// import StoreElem from './Components/StoreElem';
+
+// Lecture 03
+// import InlineCss from './Components/InlineCss';
 
 function App() {
 
@@ -46,8 +52,16 @@ function App() {
         </div>
       </div> */}
 
+
       {/* Lecture 02 */}
-      <StoreElem />
+      {/* <StoreElem /> */}
+
+
+      {/* Lecture 03 */}
+      {/* <InlineCss str={'string'} number={2} bool={true} /> */}
+      {/* Hooks */}
+
+      {/* <LearnUseState title="Use state hooks in react" /> */}
 
     </div>
   );

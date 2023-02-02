@@ -1,0 +1,9 @@
+Types of hook in react
+1 useState hooks
+2 useEffect hooks
+3 useRef hooks
+4 useCallBack hooks
+5.useMemo hooks
+
+Additional and important packages to learn
+Formik yup rtk - packages name
