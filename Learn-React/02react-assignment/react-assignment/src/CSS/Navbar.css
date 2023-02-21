@@ -54,3 +54,29 @@ button {
 .btn:hover {
   background-color: #0bc782;
 }
+
+.list {
+  position: relative;
+}
+
+.list ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 31%;
+  top: 70%;
+  background-color: #282c34;
+}
+.dropdown-menu {
+  display: none;
+}
+.dropdown-menu ul {
+  display: block;
+
+  margin: 10px;
+}
+
+.dropdown-menu ul li {
+  width: 150px;
+  padding: 10px;
+  color: white;
+}

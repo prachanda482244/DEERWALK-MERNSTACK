@@ -1,0 +1,14 @@
+
+ Different between props and state
+
+State is used for updating and defining the variable in react
+Props is used to pass the data to  the parent to children
+
+Props drilling
+Passing the porps from parent to the child and from child to grand child
+
+Rendering
+If parent execute then child on that parent also execute same goes for grandchild
+
+when the page will be rendered
+if the useState variable will be updated or if one of its parent rendered
