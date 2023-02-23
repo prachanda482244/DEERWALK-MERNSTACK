@@ -1,5 +1,6 @@
 import React from 'react'
-import BasicForm from './BasicForm/BasicForm';
+import FormikForm from './Formik/FormikForm'
+// import BasicForm from './BasicForm/BasicForm';
 // import LearnUseEffect from './Hooks/LearnUseEffect';
 // import LearnUseState from './Hooks/LearnUseState'
 // import LearnUseStateAdvance from './Hooks/LearnUseStateAdvance'
@@ -16,8 +17,9 @@ const CustomApp = () => {
             {/* {Lecture 05} */}
             {/* <Parent /> */}
             {/* Lecture 06 */}
-            <BasicForm />
-
+            {/* <BasicForm /> */}
+            {/* Lecture 07 */}
+            <FormikForm />
         </div>
     )
 }

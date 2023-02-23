@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik'
 import * as yup from 'yup'
 import FormikInput from './FormikInput'
 import FormikTextArea from './FormikTextArea'
+import FormikSelect from './FormikSelect'
 const FormikForm = () => {
     //  Meta have 3 things -
     //  value
@@ -16,7 +17,10 @@ const FormikForm = () => {
     let initialValues = {
         firstname: '', //must be same with name
         lastname: '',
-        description: ''
+        description: '',
+        country: '',
+        gender: '',
+        isMarried: false
     }
     let FormSubmit = (value, other) => {
         console.log(value)
@@ -32,6 +36,21 @@ const FormikForm = () => {
     // onChange event is fire
     //  onBlur(touched) event is fire
     // onSubmit event is fire
+
+    let countryOptions = [
+        {
+            value: 'nepal',
+            label: 'Nepal'
+        },
+        {
+            value: 'india',
+            label: 'India'
+        },
+        {
+            value: 'china',
+            label: 'China'
+        }
+    ]
     return (
         <div>
             <Formik
@@ -76,6 +95,7 @@ const FormikForm = () => {
                                 <br />
                                 <FormikTextArea name='description' label='Description' type='text' rows={3} cols={30} />
 
+                                <FormikSelect name='country' label='Country' required={true} options={countryOptions} />
                                 {/* <Field name="description">
                                     {
                                         ({ field, form, meta }) => {

@@ -6,16 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import './new.css'
 import './Nabvar.css'
 import './style.css'
-// import CustomApp from './CustomApp'
-import RoutingApp from './RoutingApp'
+import CustomApp from './CustomApp'
+// import RoutingApp from './RoutingApp'
 import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   // <App />
   <BrowserRouter>
-    {/* <CustomApp /> */}
-    <RoutingApp />
+    <CustomApp />
+    {/* <RoutingApp /> */}
   </BrowserRouter>
   // </React.StrictMode>
 );
