@@ -1,0 +1,43 @@
+post
+https://project-dw.onrender.com/api/v1/products
+ {
+          name: "Product2",
+          quantity: 13,
+          price: 12,
+          featured: true,
+          productImage:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png",
+          manufactureDate: "2022-1-24",
+          company: "apple",
+        },
+note  company is in select ["apple", "samsung", "dell", "mi"]
+
+
+get,
+"https://project-dw.onrender.com/api/v1/products",
+
+
+
+
+get,
+"https://project-dw.onrender.com/api/v1/products/63ef36b4cafb7c9aa2662848",
+
+
+
+patch
+https://project-dw.onrender.com/api/v1/products/63ef32e5cafb7c9aa2662840
+ data: {
+          name: "Product2",
+          quantity: 13,
+          price: 12,
+          featured: true,
+          productImage:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png",
+          manufactureDate: "2022-1-24",
+          company: "apple",
+        },
+
+
+ delete,
+  url: "https://project-dw.onrender.com/api/v1/products/${id}",
+

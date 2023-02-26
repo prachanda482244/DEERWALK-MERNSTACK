@@ -12,43 +12,43 @@ const Navbar = () => {
 
                     <ul>
                         <li>
-                            <NavLink to="/">
+                            <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
                                 Home
                             </NavLink>
 
                         </li>
                         <li>
-                            <NavLink to="/about">
+                            <NavLink to="/about" style={{ color: 'white', textDecoration: 'none' }}>
                                 about
                             </NavLink>
                         </li>
                         <li>Assignments
                             <div className="dropdown-menu">
                                 <ul>
-                                    <li> <NavLink to="/assignment1">
+                                    <li> <NavLink to="/assignment1" style={{ color: 'white', textDecoration: 'none' }}>
                                         Assignment1
                                     </NavLink></li>
                                     <li>
-                                        <NavLink to="/assignment2">
+                                        <NavLink to="/assignment2" style={{ color: 'white', textDecoration: 'none' }}>
                                             Assignment2
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/assignment3">
+                                        <NavLink to="/assignment3" style={{ color: 'white', textDecoration: 'none' }}>
                                             Assignment3
                                         </NavLink>
                                     </li>         <li>
-                                        <NavLink to="/assignment4">
+                                        <NavLink to="/assignment4" style={{ color: 'white', textDecoration: 'none' }}>
                                             Assignment4
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/assignment5">
+                                        <NavLink to="/assignment5" style={{ color: 'white', textDecoration: 'none' }}>
                                             Assignment5
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/routing-assignment">
+                                        <NavLink to="/routing-assignment" style={{ color: 'white', textDecoration: 'none' }}>
                                             Routing Assignment
                                         </NavLink>
                                     </li>
@@ -69,10 +69,10 @@ const Navbar = () => {
 
                         </li>
                         <li>
-                            <NavLink to='/service'>Service</NavLink>
+                            <NavLink to='/service' style={{ color: 'white', textDecoration: 'none' }}>Service</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/contact'>
+                            <NavLink to='/contact' style={{ color: 'white', textDecoration: 'none' }}>
                                 Contact
                             </NavLink>
                         </li>
