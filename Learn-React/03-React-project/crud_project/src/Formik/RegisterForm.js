@@ -4,15 +4,7 @@ import * as yup from 'yup'
 import FormikInput from './FormikInput'
 import { useNavigate } from 'react-router-dom'
 const RegisterForm = () => {
-    //  Meta have 3 things -
-    //  value
-    // error
-    // touched
-    // meta={
-    // value='',
-    // error:'',
-    // touched:false
-    // }
+
     let initialValues = {
         fullname: '', //must be same with name
         email: '',
@@ -29,8 +21,6 @@ const RegisterForm = () => {
         password: yup.string().required("Password is required"),
         confirmpassword: yup.string().required("Confirm password is required"),
     })
-
-
 
     let navigate = useNavigate()
     let Goback = () => {

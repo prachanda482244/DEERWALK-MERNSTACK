@@ -16,21 +16,19 @@ const NavBar = () => {
 
                     <ul className='flex justify-center gap-[4vw]'>
                         <li style={{ listStyle: 'none' }}>
-                            <NavLink className='text-xl uppercase text-gray-600' to='/'>Home</NavLink>
+                            <NavLink className='text-xl uppercase text-gray-600 hover:text-gray-900' to='/'>Home</NavLink>
                         </li>
                         <li style={{ listStyle: 'none' }}>
-                            <NavLink className=' text-xl uppercase text-gray-600' to='/admin'>Admin</NavLink>
+                            <NavLink className=' text-xl uppercase text-gray-600 hover:text-gray-900' to='/admin'>Admin</NavLink>
                         </li>
                         <li style={{ listStyle: 'none' }}>
-                            <NavLink className='text-xl uppercase text-gray-500' to='/customer'>Customer</NavLink>
+                            <NavLink className='text-xl uppercase text-gray-500 hover:text-gray-900' to='/customer'>Customer</NavLink>
                         </li>
-
-
                     </ul>
                 </div>
                 <div className="btns">
-                    <NavLink className='bg-[#a6c1ee] text-white px-5 py-3 mx-2 rounded-lg hover:bg-[#87acec]' to='/login'>Login</NavLink>
-                    <NavLink className='bg-[#a6c1ee] text-white px-5 py-3 mx-2 rounded-lg hover:bg-[#87acec]' to='/register'>Register</NavLink>
+                    <NavLink className='bg-cyan-400 text-white px-5 py-3 mx-2 rounded-lg active:bg-cyan-900 hover:bg-cyan-600' to='/login'>Login</NavLink>
+                    <NavLink className='bg-cyan-400 text-white px-5 py-3 mx-2 rounded-lg active:bg-cyan-900  hover:bg-cyan-600 ' to='/register'>Register</NavLink>
                 </div>
             </nav>
             <div className='w-full border-[#e5e7eb]-200 border-2 mt-4'></div>

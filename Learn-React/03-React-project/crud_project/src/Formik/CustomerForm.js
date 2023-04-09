@@ -1,39 +1,70 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Formik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import FormikInput from './FormikInput'
 import FormikSelect from './FormikSelect'
 import AlertMessage from '../Components/AlertMessage'
-const CustomerForm = () => {
+import { useNavigate, useParams } from 'react-router-dom'
+import { companyNames } from '../config/config'
+const CustomerForm = ({ btnName, apiMethod, product = {} }) => {
+    // let [product, setProduct] = useState([])
+    let { id } = useParams()
+    let navigate = useNavigate()
+    // let getProduct = async () => {
+    //     let results = await axios({
+    //         method: 'get',
+    //         url: `https://project-dw.onrender.com/api/v1/products/${id}`
+    //     })
+    //     let singleProduct = results.data.data
+    //     console.log(singleProduct)
+    //     setProduct(singleProduct)
+    // }
+
+    // useEffect(() => {
+    //     getProduct()
+    // }, [])
+
     let [msg, setMessage] = useState({
         message: '',
         className: ''
     })
+
     let initialValues = {
-        name: "",
-        quantity: '',
-        price: '',
-        featured: true,
-        productImage: "",
-        manufactureDate: "",
-        company: "apple",
+        name: product.name || '',
+        quantity: product.quantity || '',
+        price: product.price || '',
+        featured: product.featured || '',
+        productImage: product.productImage || '',
+        manufactureDate: product.manufactureDate || '',
+        company: product.company || 'apple',
     }
+
+    let validationSchema = yup.object({
+
+        name: yup.string().required("Name is required"),
+        quantity: yup.number().required("Quantity is required"),
+        price: yup.number().required("Price is required"),
+        featured: yup.boolean(),
+        productImage: yup.string().required("Product image is required"),
+        manufactureDate: yup.string().required("Manufacture date is required"),
+        company: yup.string().required("Company is required")
+    })
     let FormSubmit = async (values, other) => {
         console.log(values)
         try {
-
             let output = await axios({
-                method: 'post',
-                url: 'https://project-dw.onrender.com/api/v1/products',
+                method: apiMethod,
+                url: apiMethod === 'patch' ? `https://project-dw.onrender.com/api/v1/products/${id}` : 'https://project-dw.onrender.com/api/v1/products',
                 data: values
             })
             console.log(output)
             other.resetForm()
             setMessage({
-                message: 'Product Added Successfully',
+                message: `Product ${btnName}ed Successfully`,
                 className: 'green-900'
             })
+            navigate('/customer/products/view')
         }
         catch (error) {
             console.log(error.message)
@@ -42,8 +73,6 @@ const CustomerForm = () => {
                 className: 'red-800'
 
             })
-
-
         }
         setTimeout(() => {
             setMessage({
@@ -53,40 +82,16 @@ const CustomerForm = () => {
         }, 2500)
         // hit the api
     }
-    let validationSchema = yup.object({
-        name: yup.string().required("Name is required"),
-        quantity: yup.number().required("Quantity is required"),
-        price: yup.number().required("Price is required"),
-        featured: yup.boolean(),
-        productImage: yup.string().required("Product image is required"),
-        manufactureDate: yup.string().required("Manufacture date is required"),
-        company: yup.string().required("Company is required")
-    })
 
-    let companyNames = [
-        {
-            value: 'apple',
-            label: 'Apple'
-        },
-        {
-            value: 'samsung',
-            label: 'Samsung'
-        },
-        {
-            value: 'dell',
-            label: 'Dell'
-        },
-        {
-            value: 'mi',
-            label: 'Mi'
-        }
-    ]
     return (
         <div>
             <AlertMessage message={msg.message} className={msg.className} />
 
             <Formik
-                initialValues={initialValues} onSubmit={FormSubmit} validationSchema={validationSchema}>
+                initialValues={initialValues} onSubmit={FormSubmit} validationSchema={validationSchema}
+                enableReinitialize={true}
+            >
+
                 {
                     (formik) => {
                         return (
@@ -103,7 +108,8 @@ const CustomerForm = () => {
                                     <FormikInput name="manufactureDate" label="Manufacture Date " type='date' required={true} />
                                 </div>
                                 <FormikSelect name='company' label='Company name' required={true} options={companyNames} />
-                                <button type='submit' className=' bg-cyan-400 hover:bg-cyan-500 w-full py-3 px-2 rounded-lg m-2 text-white uppercase shadow-md'>Add Product</button>
+                                <button type='submit' className=' bg-cyan-400 hover:bg-cyan-500 w-full py-3 px-2 rounded-lg m-2 text-white uppercase shadow-md'>{btnName} Product</button>
+
                             </Form>
                         )
                     }

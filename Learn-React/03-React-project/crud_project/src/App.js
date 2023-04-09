@@ -8,6 +8,8 @@ import Customer from './Customer/Customer';
 import CreateProduct from './Customer/CreateProduct';
 import Home from './Components/Home';
 import ShowAllProducts from './Customer/ShowAllProducts';
+import ShowOneProduct from './Customer/ShowOneProduct';
+import UpdateProduct from './Customer/UpdateProduct';
 
 function App() {
   return (
@@ -38,19 +40,22 @@ Q63 get all products (using api at axious.txt file) (edited)
               <Route path='show' element="Sho product page" />
             </Route>
           </Route>
+
           <Route path='customer' element={<Outlet />} >
             <Route index element={<Customer />} />
-            <Route path='products' element={<Outlet />}>
-              <Route path=':id' element={<ShowAllProducts />} />
+            <Route path='products' element={<Outlet />} >
+              <Route path='view' element={<ShowAllProducts />} />
+              <Route path=':id' element={<ShowOneProduct />} />
               <Route path='create' element={<CreateProduct />} />
-              <Route path='update' element='Update cusotmoer' />
+              <Route path='update/:id' element={<UpdateProduct />} />
             </Route>
           </Route>
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
         </Route>
       </Routes>
-    </div>
+    </div >
   );
 }
 
