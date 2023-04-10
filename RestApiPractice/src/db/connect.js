@@ -1,5 +1,5 @@
 import { connect } from 'mongoose'
-let db = 'restApiPractice'
+let db = 'restApiPracticeOlympics'
 let dbUrl = `mongodb://localhost:27017/${db}`
 const connectToDb = async () => {
     try {
