@@ -1,10 +1,8 @@
 import { connect } from 'mongoose'
-let db = 'RegisterSystem'
-let dbUrl = `mongodb://localhost:27017/${db}`
-
+import { dbUrl } from '../config/config.js'
 export const connectToDb = async () => {
     try {
         await connect(dbUrl)
-        console.log(`Connect to database ${db}`)
+        console.log(`Connect to database `)
     } catch (e) { console.log(e.message) }
 }

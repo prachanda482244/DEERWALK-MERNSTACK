@@ -1,5 +1,7 @@
 import { RegisterUser } from "../schema/model.js";
 import { generateHashCode } from "../utils/hashing.js";
+import { createToken } from "../utils/token.js";
+
 export const registerUser = async (req, res) => {
     try {
 
@@ -18,11 +20,27 @@ export const registerUser = async (req, res) => {
                 phone: req.body.phone,
                 age: req.body.age,
                 password: hashPassword,
-                confirmPassword: undefined,
+                confirmPassword: hashPassword,
             }
 
+
             const registerNewUser = await RegisterUser.create(users)
+
+
+            // middleware here
+            let info = {
+                _id: registerNewUser._id.toString()
+            }
+            let token = await createToken(info, process.env.SECRET_KEY)
+
+            registerNewUser.tokens = registerNewUser.tokens.concat({ token: token })
+            await registerNewUser.save()
+
+
+            // to here
             res.status(201).send(registerNewUser)
+
+
         } else {
             res.status(400).send("Password not matching")
         }

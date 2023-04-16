@@ -1,5 +1,6 @@
 import { RegisterUser } from "../schema/model.js";
 import { compareHashCode } from "../utils/hashing.js";
+import { createToken } from "../utils/token.js";
 export const loginUser = async (req, res) => {
     try {
         // User crendential
@@ -9,13 +10,20 @@ export const loginUser = async (req, res) => {
         // Getting database records
 
         // const registerEmail = RegisterUser.findOne({ email })
-        let userEmail = await RegisterUser.findOne({ email })
-        const hashPassword = userEmail.password
+        let user = await RegisterUser.findOne({ email })
+        const hashPassword = user.password
         const userpassword = await compareHashCode(password, hashPassword)
 
-        if (userEmail !== email) {
+        let info = {
+            _id: user._id
+        }
+
+        if (user !== email) {
             if (userpassword) {
-                res.status(201).send(`Welcome ${userEmail.firstname}  ${userEmail.lastname} \n you're logged in successfully`)
+                let token = await createToken(info, process.env.SECRET_KEY)
+                console.log("Generated Token:- " + token)
+
+                res.status(201).send(`Welcome ${user.firstname}  ${user.lastname} \n you're logged in successfully`)
             } else {
                 res.status(400).send("Password Not matching")
             }

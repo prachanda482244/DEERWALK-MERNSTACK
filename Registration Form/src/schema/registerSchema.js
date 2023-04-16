@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-
+import { createToken } from "../utils/token.js";
 const registerSchema = Schema({
     firstname: {
         type: String,
@@ -34,6 +34,14 @@ const registerSchema = Schema({
     confirmPassword: {
         type: String,
         minlength: [8, "Password Must be at least 8 characters"]
-    }
+    },
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
+
 })
+
 export default registerSchema
