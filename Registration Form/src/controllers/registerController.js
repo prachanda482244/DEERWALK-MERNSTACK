@@ -1,3 +1,4 @@
+import { secretKey } from "../config/config.js";
 import { RegisterUser } from "../schema/model.js";
 import { generateHashCode } from "../utils/hashing.js";
 import { createToken } from "../utils/token.js";
@@ -31,7 +32,12 @@ export const registerUser = async (req, res) => {
             let info = {
                 _id: registerNewUser._id.toString()
             }
-            let token = await createToken(info, process.env.SECRET_KEY)
+            let token = await createToken(info, secretKey)
+
+            res.cookie("jwt", token, {
+                expires: new Date(Date.now() + 30000),
+                httpOnly: true
+            })
 
             registerNewUser.tokens = registerNewUser.tokens.concat({ token: token })
             await registerNewUser.save()

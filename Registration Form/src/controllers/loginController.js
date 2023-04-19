@@ -1,11 +1,15 @@
+import { secretKey } from "../config/config.js";
 import { RegisterUser } from "../schema/model.js";
 import { compareHashCode } from "../utils/hashing.js";
 import { createToken } from "../utils/token.js";
+
 export const loginUser = async (req, res) => {
     try {
         // User crendential
-        const email = req.body.email
-        const password = req.body.password
+        // const email = req.body.email
+        // const password = req.body.password
+        let email = req.query.email
+        let password = req.query.password
 
         // Getting database records
 
@@ -20,10 +24,15 @@ export const loginUser = async (req, res) => {
 
         if (user !== email) {
             if (userpassword) {
-                let token = await createToken(info, process.env.SECRET_KEY)
-                console.log("Generated Token:- " + token)
 
-                res.status(201).send(`Welcome ${user.firstname}  ${user.lastname} \n you're logged in successfully`)
+                let token = await createToken(info, secretKey)
+                res.cookie("jwt", token, {
+                    expires: new Date(Date.now() + 600000),
+                    httpOnly: true,
+                    secure: true
+                })
+                // console.log(req.cookies.jwt)
+                res.status(201).send(`Logged In Successfully <br> <br> <button> <a href="/viewDetails">View Details</a></button>`)
             } else {
                 res.status(400).send("Password Not matching")
             }
